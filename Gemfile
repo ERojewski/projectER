@@ -38,6 +38,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'haml'
 gem 'devise'
+gem 'rails_12factor', group: :production
 
 group :develpment, :test do
 	gem 'rspec-rails', '~> 3.0.0'
