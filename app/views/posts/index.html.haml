@@ -1,0 +1,22 @@
+%h1 Lista postów
+Zalogowano: 
+=current_user.email
+=link_to 'wyloguj', destroy_user_session_path, method: :delete
+%ul
+	-@posts.each do |post|
+		%li
+			=post.content 
+			-if current_user.email == post.author
+				=link_to "Usuń", post_path(post.id), method: :delete
+				=link_to "Edytuj", edit_post_path(post.id)
+			=link_to "Pokaż", post_path(post.id)
+			=link_to "Dodaj komentarz", new_comment_path
+			
+			%br
+			Autor: 
+			=post.author
+%h1 Dodaj post
+=link_to "Nowy post", new_post_path
+%br 
+%br
+=link_to "Powrót do Strony Głównej", root_url
