@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 	private
 		def make_sure_its_mine
 			unless current_user.id==params[:id]
-			else
 				redirect_to root_url, alert: "To nie twoje konto!"
 			end
 			true
