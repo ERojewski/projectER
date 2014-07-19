@@ -1,0 +1,9 @@
+%h1 Dodaj Komentarz
+- if @comment.errors.present?
+  - @comment.errors.full_messages.each do |err|
+    %li= err
+= form_for(@comment) do |f|
+  = f.hidden_field :post_id, value: params[:post_id]
+  = f.label :content
+  = f.text_area :content
+  = f.submit 'Dodaj!'
