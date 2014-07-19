@@ -4,3 +4,16 @@
 =@post.author
 %br
 =link_to "Powrót", posts_path
+= link_to "Komentuj", new_comment_path(post_id: @post.id), method: :get
+
+
+%h2 Komentarze:
+%ul
+	-@post.comments.each do |comment|
+		%li
+			=comment.content
+			%br
+			dodał:
+			=comment.user.email
+			-if current_user.email==comment.user.email
+				=link_to "Usuń", comment_path(comment.id), method: :delete

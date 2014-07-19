@@ -5,15 +5,20 @@ Zalogowano:
 %ul
 	-@posts.each do |post|
 		%li
-			=post.content 
-			-if current_user.email == post.author
-				=link_to "Usuń", post_path(post.id), method: :delete
-				=link_to "Edytuj", edit_post_path(post.id)
-			=link_to "Pokaż", post_path(post.id)
-			
+			=link_to "Zobacz", post_path(post.id), method: :get
 			%br
-			Autor: 
+			id:
+			=post.id
+			%br
+			%b Dodał:
 			=post.author
+			%br
+			user id:
+			=post.id
+
+			=link_to "Edytuj", edit_post_path(post.id), method: :get
+			=link_to "Usuń", post_path(post.id), method: :delete
+
 %h1 Dodaj post
 =link_to "Nowy post", new_post_path
 %br 
