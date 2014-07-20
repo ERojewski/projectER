@@ -8,7 +8,7 @@ Zalogowano:
 		%h1.text-center Edytuj post
 		=form_for(@post) do |f|
 			=f.label 'Treść'
-			=f.text_field :content
+			=f.text_area :content, :rows => 3
 			=f.submit "Edytuj!"
 .container
 	.w50.center-block
