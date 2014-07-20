@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/heroku/rails3_serve_static_assets.git
+  revision: 84910ceb4ca2851d650e66d3b22f5008acf253f8
+  specs:
+    rails3_serve_static_assets (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -154,6 +160,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 4.1.4)
+  rails3_serve_static_assets!
   rails_12factor
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
