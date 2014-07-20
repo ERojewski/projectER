@@ -33,3 +33,4 @@
 					=comment.user.email
 					-if current_user.id==comment.user_id
 						=link_to "Usuń", comment_path(comment.id), method: :delete
+						=link_to "Edytuj", edit_comment_path(comment.id), method: :get
