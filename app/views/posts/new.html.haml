@@ -6,6 +6,9 @@
 			=f.label "Zalogowano: " 
 			=current_user.email
 			.form-group
+			=f.label "Tytuł postu: "
+			=f.text_field :title
+			%br
 			=f.label "Treśc postu: " 
 			=f.text_field :content
 	
