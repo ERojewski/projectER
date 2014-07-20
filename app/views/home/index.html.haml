@@ -1,15 +1,19 @@
--if current_user
-	%h1 Cześć 
-	=current_user.email 
-	=link_to "wyloguj się", destroy_user_session_path, method: :delete 
-	%br
-	%br
-	=link_to "Pokaż posty", posts_path
-	%br
-	=link_to "Dodaj post", new_post_path
--else 
-	%h1 Cześć nieznajomy
-	=link_to "Zaloguj się", new_user_session_path
-	=link_to "Zarejestruj", new_user_registration_path
-%br
-%br
+.container
+	.w50.center-block
+
+
+		-if current_user
+			%h1 Cześć 
+			=current_user.email 
+			=link_to "wyloguj się", destroy_user_session_path, method: :delete 
+			%br
+			%br
+			=link_to "Pokaż posty", posts_path
+			%br
+			=link_to "Dodaj post", new_post_path
+		-else 
+			%h1 Cześć nieznajomy
+			=link_to "Zaloguj się", new_user_session_path
+			=link_to "Zarejestruj", new_user_registration_path
+		%br
+		%br
