@@ -11,8 +11,9 @@
 					%br
 					%b Tytuł: 
 					=post.title
-					=link_to "Edytuj", edit_post_path(post.id), method: :get
-					=link_to "Usuń", post_path(post.id), method: :delete
+					-if current_user.email == post.author
+						=link_to "Edytuj", edit_post_path(post.id), method: :get
+						=link_to "Usuń", post_path(post.id), method: :delete
 
 %h1 Dodaj post
 =link_to "Nowy post", new_post_path
