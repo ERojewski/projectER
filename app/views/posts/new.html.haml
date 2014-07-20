@@ -1,10 +1,11 @@
 .container
 	.w50.center-block
+		Zalogowano:  
+		=current_user.email
+		=link_to "wyloguj", destroy_user_session_path, method: :delete 
 		%h1.text-center Dodaj post
 		=form_for(@post) do |f|
-			.form-group
-			=f.label "Zalogowano: " 
-			=current_user.email
+
 			.form-group
 			=f.label "Tytuł postu: " 
 			%br

@@ -1,3 +1,7 @@
+Zalogowano: 
+current_user.email
+=link_to "wyloguj", destroy_user_session_path, method: :delete
+
 %h1 Modyfikuj Komentarz
 - if @comment.errors.present?
   - @comment.errors.full_messages.each do |err|

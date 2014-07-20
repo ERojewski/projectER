@@ -1,4 +1,11 @@
 .container
+	Zalogowany jako: 
+	=current_user.email
+
+	=link_to "wyloguj", destroy_user_session_path, method: :delete
+
+
+.container
 	.w50.center-block
 
 		%h1 
@@ -24,5 +31,5 @@
 					%br
 					dodał:
 					=comment.user.email
-					-if current_user.email==comment.user.email
+					-if current_user.id==comment.user_id
 						=link_to "Usuń", comment_path(comment.id), method: :delete
