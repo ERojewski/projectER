@@ -1,23 +1,18 @@
-%h1 Lista postów
-Zalogowano: 
-=current_user.email
-=link_to 'wyloguj', destroy_user_session_path, method: :delete
-%ul
-	-@posts.each do |post|
-		%li
-			=link_to "Zobacz", post_path(post.id), method: :get
-			%br
-			id:
-			=post.id
-			%br
-			%b Dodał:
-			=post.author
-			%br
-			user id:
-			=post.id
-
-			=link_to "Edytuj", edit_post_path(post.id), method: :get
-			=link_to "Usuń", post_path(post.id), method: :delete
+.container
+	.w50.center-block
+		%h1.text-center Lista postów
+		Zalogowano: 
+		=current_user.email
+		=link_to 'wyloguj', destroy_user_session_path, method: :delete
+		%ul
+			-@posts.each do |post|
+				%li
+					=link_to "Zobacz", post_path(post.id), method: :get
+					%br
+					%b Tytuł: 
+					=post.title
+					=link_to "Edytuj", edit_post_path(post.id), method: :get
+					=link_to "Usuń", post_path(post.id), method: :delete
 
 %h1 Dodaj post
 =link_to "Nowy post", new_post_path

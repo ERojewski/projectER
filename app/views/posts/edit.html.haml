@@ -1,5 +1,13 @@
-%h1 Edytuj post
-=form_for(@post) do |f|
-	=f.label 'Treść'
-	=f.text_field :content
-	=f.submit "Edytuj!"
+.container
+	.w50.center-block
+
+		%h1.text-center Edytuj post
+		=form_for(@post) do |f|
+			=f.label 'Treść'
+			=f.text_field :content
+			=f.submit "Edytuj!"
+.container
+	.w50.center-block
+		=link_to "Powrót", posts_path
+		%br
+		=link_to "Strona Główna", root_url
