@@ -14,7 +14,7 @@
 			=f.label 'Treść'
 			%br
 			=f.text_area :content
-			=f.submit 'Dodaj!'
+			=f.submit 'Dodaj!', class "btn, btn-primary"
 			
 		=link_to "Powrót", post_path(params[:post_id]), method: :get
 		%br
