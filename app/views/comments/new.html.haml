@@ -10,12 +10,12 @@
 			-@comment.errors.full_messages.each do |err|
 				%li=err
 		=form_for(@comment) do |f|
-			=f.hidden_field :post_id, value: params[:post_id]
+			=f.hidden_field :post_id, value: @comment.post_id
 			=f.label 'Treść'
 			%br
 			=f.text_area :content
 			=f.submit 'Dodaj!', class: "btn, btn-primary"
 			
-		=link_to "Powrót", post_path(params[:post_id]), method: :get
+		=link_to "Powrót", post_path(@comment.post_id), method: :get
 		%br
 		=link_to "Strona Główna", root_url
