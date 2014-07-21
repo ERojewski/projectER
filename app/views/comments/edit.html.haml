@@ -11,9 +11,9 @@ Zalogowano:
   = f.label "Treść"
   %br
   = f.text_area :content
-  = f.submit 'Edytuj!'
 
-  %br
-  =link_to "Powrót", post_path(params[:post_id])
-  %br
-  =link_to "Strona Główna", root_url
+  = f.submit 'Edytuj!'
+%br
+=link_to "Powrót", post_path(@comment.post_id)
+%br
+=link_to "Strona Główna", root_url
