@@ -1,0 +1,17 @@
+Zalogowano: 
+=current_user.email
+=link_to "wyloguj", destroy_user_session_path, method: :delete
+
+.container
+	.w50.center-block
+
+		%h1.text-center Edytuj post
+		=form_for(@post) do |f|
+			=f.label 'Treść'
+			=f.text_area :content, :rows => 3
+			=f.submit "Edytuj!", class: "btn, btn-primary"
+.container
+	.w50.center-block
+		=link_to "Powrót", posts_path
+		%br
+		=link_to "Strona Główna", root_url

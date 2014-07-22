@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encodinng: unicode
+  username: emil
+  password:
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: blog_development
+
+test:
+  <<: *default
+  database: blog_test

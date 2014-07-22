@@ -1,0 +1,36 @@
+.container
+	Zalogowany jako: 
+	=current_user.email
+
+	=link_to "wyloguj", destroy_user_session_path, method: :delete
+
+
+.container
+	.w50.center-block
+
+		%h1 
+			Tytuł: 
+			=@post.title
+		%h4
+			=@post.content
+		%br 
+		Autor: 
+		=@post.author
+		%br
+		=link_to "Powrót", posts_path
+		= link_to "Komentuj", new_comment_path(post_id: @post.id), method: :get
+
+.container
+	.w50.center-block
+
+		%h2 Komentarze:
+		%ul
+			-@post.comments.sort_by{|c| c.id}.each do |comment|
+				%li
+					=comment.content
+					%br
+					dodał:
+					=comment.user.email
+					-if current_user.id==comment.user_id
+						=link_to "Usuń", comment_path(comment.id), method: :delete
+						=link_to "Edytuj", edit_comment_path(comment.id), method: :get

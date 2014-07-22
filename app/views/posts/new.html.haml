@@ -1,0 +1,24 @@
+.container
+	.w50.center-block
+		Zalogowano:  
+		=current_user.email
+		=link_to "wyloguj", destroy_user_session_path, method: :delete 
+		%h1.text-center Dodaj post
+		=form_for(@post) do |f|
+
+			.form-group
+			=f.label "Tytuł postu: " 
+			%br
+			=f.text_field :title
+			%br
+			=f.label "Treśc postu: " 
+			%br
+			=f.text_area :content, :rows => 3
+	
+			=f.submit "Dodaj!", class: "btn, btn-primary"
+		
+		%p 
+		=link_to "Powrót", posts_path
+		%br
+		%p
+		=link_to "Strona Główna", root_url

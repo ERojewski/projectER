@@ -1,0 +1,19 @@
+Zalogowano: 
+=current_user.email
+=link_to "wyloguj", destroy_user_session_path, method: :delete
+
+%h1 Modyfikuj Komentarz
+- if @comment.errors.present?
+  - @comment.errors.full_messages.each do |err|
+    %li= err
+= form_for(@comment) do |f|
+  = f.hidden_field :post_id, value: @comment.post_id
+  = f.label "Treść"
+  %br
+  = f.text_area :content
+
+  = f.submit 'Edytuj!', class: "btn, btn-primary"
+%br
+=link_to "Powrót", post_path(@comment.post_id)
+%br
+=link_to "Strona Główna", root_url
