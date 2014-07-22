@@ -25,9 +25,7 @@
 
 		%h2 Komentarze:
 		%ul
-			-@post.comments = @post.comments.sort_by {|c| c.id}
-
-			-@post.comments.each do |comment|
+			-@post.comments.sort_by{|c| c.id}.each do |comment|
 				%li
 					=comment.content
 					%br

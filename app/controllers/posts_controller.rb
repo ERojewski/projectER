@@ -8,11 +8,13 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@post.comments = @post.comments.sort_by{|c| c.id}
 	end
 
 	def destroy
 		@post=Post.find(params[:id])
+		@post.comments.each do |comment|
+			comment.destroy
+		end
 		@post.destroy
 		redirect_to posts_path
 	end
@@ -52,7 +54,6 @@ class PostsController < ApplicationController
 			true
 		end
 
-	private
 		def post_params
 			params.require(:post).permit(:content, :title)		
 		end

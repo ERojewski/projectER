@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
 
 	def show
 		@comment = Comment.find(params[:id])
-		@comment = @comment.sort_by{|c| c.id}
 	end
 
 	def destroy
