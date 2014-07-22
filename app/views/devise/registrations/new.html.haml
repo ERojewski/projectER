@@ -1,19 +1,19 @@
 .container
   .w50.center-block
 
-    %h2 Sign up
+    %h2 Rejestracja
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
       %div
-        = f.label :email
+        = f.label 'E-mail'
         %br/
         = f.email_field :email, autofocus: true
       %div
-        = f.label :password
+        = f.label 'Hasło'
         %br/
         = f.password_field :password, autocomplete: "off"
       %div
-        = f.label :password_confirmation
+        = f.label 'Powtórz hasło'
         %br/
         = f.password_field :password_confirmation, autocomplete: "off"
       %div= f.submit "Zarejestruj"

@@ -1,14 +1,14 @@
 .container
   .w50.center-block 
 
-    %h2 Sign in
+    %h2 Logowanie
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       %div
-        = f.label :email
+        = f.label 'E-mail'
         %br/
         = f.email_field :email, autofocus: true
       %div
-        = f.label :password
+        = f.label 'Hasło'
         %br/
         = f.password_field :password, autocomplete: "off"
       - if devise_mapping.rememberable?
