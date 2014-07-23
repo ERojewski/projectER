@@ -2,16 +2,20 @@
 
 class UsersController < ApplicationController
 	before_action :authenticate_user!
-	before_action :make_sure_its_mine
+	#before_action :make_sure_its_mine
 
-	def show
+	def index
+		@users = User.all
 	end
 
-	private
-		def make_sure_its_mine
-			unless current_user.id==params[:id]
-				redirect_to root_url, alert: "To nie twoje konto!"
-			end
-			true
-		end
+	def show
+		@user = User.find(params[:id])
+	end
+	# private
+	# 	def make_sure_its_mine
+	# 		unless current_user.id==params[:id]
+	# 			redirect_to root_url, alert: "To nie twoje konto!"
+	# 		end
+	# 		true
+	# 	end
 end

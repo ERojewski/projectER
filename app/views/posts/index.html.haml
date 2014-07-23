@@ -1,9 +1,10 @@
 .container
 	.w50.center-block
-		%h1.text-center Lista postów
 		Zalogowano: 
 		=current_user.email
 		=link_to 'wyloguj', destroy_user_session_path, method: :delete
+		%h1.text-center Lista postów
+		
 		%ul
 			-@posts.each do |post|
 				%li
@@ -14,9 +15,10 @@
 					-if current_user.email == post.author
 						=link_to "Edytuj", edit_post_path(post.id), method: :get
 						=link_to "Usuń", post_path(post.id), method: :delete
-
-%h1 Dodaj post
-=link_to "Nowy post", new_post_path
-%br 
-%br
-=link_to "Powrót do Strony Głównej", root_url
+			-if @posts.count == 0
+				%h3.text-center Brak postów
+		%h1 Dodaj post
+		=link_to "Nowy post", new_post_path
+		%br 
+		%br
+		=link_to "Powrót do Strony Głównej", root_url

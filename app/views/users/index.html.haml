@@ -1,5 +1,13 @@
-%h1 panel usera
-%h3=@user.email
-%hr
-%ul
-	
+.container
+	.w50.center-block
+		Zalogowano:
+		=current_user.email
+		=link_to 'wyloguj', destroy_user_session_path, method: :delete
+		%h3 Lista użytkowników
+
+		%ul
+			-@users.each do |user|
+				-if user.email != current_user.email
+					%li
+						=user.email
+

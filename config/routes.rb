@@ -12,4 +12,5 @@ get 'comment/:id' => 'comments#create'
 resources :comments
 resources :posts
 resources :posts, only: [:index]
+resources :users
 end
